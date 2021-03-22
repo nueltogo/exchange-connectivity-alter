@@ -21,7 +21,11 @@ public class ExchangeConnectivityApplication implements CommandLineRunner {
 		OrderConsumer orderConsumer = new OrderConsumer();
 
 		mockTradeEngine.produce();
-		orderConsumer.consumeOrder();
+		try {
+			orderConsumer.consumeOrder();
+		}catch (Exception e){
+			System.out.println(e);
+		}
 	}
 
 }
